@@ -41,32 +41,32 @@ export class YearsGrid {
 }
 
 export class Options {
-  startDate?: Dayjs = null;
-  endDate?: Dayjs = null;
-  minDate?: Dayjs = null;
-  maxDate?: Dayjs = null;
-  format?: string = 'YYYY-MM-DD';
-  displayFormat?: string;
+  startDate?: Dayjs| null = null;
+  endDate?: Dayjs| null = null;
+  minDate?: Dayjs| null = null;
+  maxDate?: Dayjs| null = null;
+  format?: string| null = 'YYYY-MM-DD';
+  displayFormat?: string| null;
   inactiveBeforeStart?: boolean = false;
   autoApply?: boolean = false;
   singleCalendar?: boolean = false;
   preDefinedRanges?: DefinedDateRange[];
   noDefaultRangeSelected?: boolean = false;
   showRanges?: boolean = false;
-  position?: Position = 'left';
+  position?: Position| null = 'left';
   disabled?: boolean = false;
-  timePicker?: Timepicker = null;
+  timePicker?: Timepicker| null = null;
   disableBeforeStart?: boolean = false;
   alwaysOpen?: boolean = false;
   theme?: Theme = 'light';
   required?: boolean = false;
   DOB?: boolean = false;
-  weekStartsOn?: number = 0;
+  weekStartsOn?: number| null = 0;
   addTouchSupport?: boolean = false;
   placeholder?: string = '';
   hideControls?: boolean = false;
   readOnly?: boolean = false;
   disableWeekEnds: boolean = false;
-  disabledDays: number[] = null;
-  disabledDates: Dayjs[] = null;
+  disabledDays: number[]| null = null;
+  disabledDates: Dayjs[]| null = null;
 }

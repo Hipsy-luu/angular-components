@@ -20,7 +20,11 @@
       "dom",
       "es2015",
       "es2017"
-    ]
+    ],
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
+    "strictNullChecks":false,
+    "noPropertyAccessFromIndexSignature": false
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
@@ -28,7 +32,8 @@
     "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableResourceInlining": true
+    "enableResourceInlining": true,
+    "allowSyntheticDefaultImports" : true
   },
   "exclude": [
     "src/test.ts",

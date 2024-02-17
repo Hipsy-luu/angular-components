@@ -6,11 +6,14 @@ import {
   Output,
 } from '@angular/core';
 import calendarize from 'calendarize';
-import dayjs, { Dayjs } from 'dayjs';
-import customParser from 'dayjs/plugin/customParseFormat';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import localeData from 'dayjs/plugin/localeData';
+
+import * as dayjs from 'dayjs';
+import { Dayjs } from 'dayjs';
+import * as isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import * as isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import * as customParser from 'dayjs/plugin/customParseFormat';
+
+import * as localeData from 'dayjs/plugin/localeData';
 import {
   DateChanged,
   MonthNameValue,
@@ -101,7 +104,7 @@ export class Calendar implements OnChanges {
     const year = nextMonthStartDate.get('year');
     const month = nextMonthStartDate.get('month');
     return calendarize(nextMonthStartDate.toDate(), this.weekStartsOn)
-      .shift()
+      .shift()!
       .filter(Boolean)
       .map((day) => {
         return dayjs()
@@ -170,8 +173,8 @@ export class Calendar implements OnChanges {
       this.year = this.maxYear;
       this.month = this.maxMonth;
     }
-    let year = null;
-    let month = null;
+    let year : number | null = null;
+    let month : number | null  = null;
     this.setWeekDays();
     this.setWeekEnd();
     const thisMonthStartDate = dayjs()
@@ -189,8 +192,8 @@ export class Calendar implements OnChanges {
           return null;
         }
         return dayjs()
-          .set('year', year)
-          .set('month', month)
+          .set('year', year!)
+          .set('month', month!)
           .set('date', day)
           .set('hour', 0)
           .set('minute', 0)
@@ -201,10 +204,10 @@ export class Calendar implements OnChanges {
     // if this months first week has less than 7 days then take previous month's last week and merge them
     // This should be done only for grid view which is shown only on non touch devices
     if (!this.isTouch) {
-      if (thisMonthWeekList[0].length < 7) {
-        thisMonthWeekList[0] = this.getPreviousMonthNthLastWeek(1).concat(
-          thisMonthWeekList[0]
-        );
+      if (thisMonthWeekList[0] != null && thisMonthWeekList[0].length < 7) {
+          thisMonthWeekList[0] = this.getPreviousMonthNthLastWeek(1).concat(
+            thisMonthWeekList[0] as Dayjs[]
+          );
       }
       // if this months last week has less than 7 days then take next month's first week and merge them
       if (thisMonthWeekList.slice(-1)[0].length < 7) {
@@ -220,7 +223,7 @@ export class Calendar implements OnChanges {
     } else {
       this.createTouchCalendarGridData();
     }
-    this.weekList = thisMonthWeekList;
+    this.weekList = thisMonthWeekList as Dayjs[][];
   }
   setWeekEnd() {
     this.weekEndOn = [this.weekStartsOn, this.weekStartsOn + 6];

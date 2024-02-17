@@ -15,4 +15,5 @@ const arraySupport = require('dayjs/plugin/arraySupport');
 dayjs.extend(arraySupport);
 
 export * from './datetimerangepicker.module';
+export * from './daterangepicker/daterangepicker.component';
 export * from './types';

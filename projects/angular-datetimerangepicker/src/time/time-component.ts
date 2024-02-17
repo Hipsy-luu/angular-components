@@ -8,10 +8,11 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Timepicker } from '../types';
-import dayjs, { Dayjs } from 'dayjs';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import customParser from 'dayjs/plugin/customParseFormat';
+import * as dayjs from 'dayjs';
+import { Dayjs } from 'dayjs';
+import * as isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import * as isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import * as customParser from 'dayjs/plugin/customParseFormat';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);

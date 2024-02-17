@@ -5,6 +5,9 @@
     "type": "git",
     "url": "https://github.com/technikhil314/angular-components"
   },
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json"
+  },
   "description": "Highly configurable, opinionated, themable, light weight (12kb) date and time range picker for angular",
   "keywords": [
     "angular 6",
@@ -12,6 +15,7 @@
     "angular 8",
     "angular 9",
     "angular X",
+    "angular 17",
     "angular component",
     "date range picker",
     "date picker",
@@ -29,11 +33,11 @@
   "homepage": "https://github.com/technikhil314/angular-components/tree/master/projects/angular-datetimerangepicker",
   "dependencies": {
     "calendarize": "^1.1.1",
-    "dayjs": "^1.9.3"
+    "dayjs": "^1.11.10"
   },
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    "@angular/common": "^17.1.0",
+    "@angular/core": "^17.1.0"
   },
   "funding": [
     {
@@ -44,5 +48,16 @@
       "type": "paypal",
       "url": "https://www.paypal.com/paypalme/technikhil314"
     }
-  ]
+  ],
+  "ngPackage": {
+    "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../../dist/angular-datetimerangepicker",
+    "lib": {
+      "entryFile": "src/public_api.ts"
+    },
+    "allowedNonPeerDependencies": [
+      "calendarize",
+      "dayjs"
+    ]
+  }
 }
